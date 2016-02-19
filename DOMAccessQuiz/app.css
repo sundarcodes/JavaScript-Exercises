@@ -1,0 +1,16 @@
+.box1{
+	height:20px;
+	width:20px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+
+.box2{
+	height:20px;
+	width:20px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	background-color: green;
+}
