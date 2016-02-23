@@ -1,0 +1,31 @@
+.box{
+	height:10vh;
+	width:10vh;
+	border-color: blue;
+	border-width: 1px;
+	border-style: solid;
+	display: inline-block;
+	float:left;
+}
+
+.row{
+	clear:left;
+}
+
+.outerBox{
+	position: absolute;
+    margin-left: 45vw;
+    margin-top: 10vh;
+}
+
+.green{
+	background-color: green;
+}
+
+.yellow{
+	background-color: yellow;
+}
+
+.orange{
+	background-color: orange;
+}
