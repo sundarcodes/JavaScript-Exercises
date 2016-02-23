@@ -14,3 +14,12 @@
 	border-color: black;
 	background-color: green;
 }
+
+.box{
+	height:40px;
+	width:40px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	background-color: yellow;
+}
