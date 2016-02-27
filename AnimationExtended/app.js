@@ -43,14 +43,6 @@ $(document).ready(function(){
           // or if the bottom of minion touches the top of monster
           // or if the left of minion touches the right of monster
           // or if the top of minion touches the bottom of monster
-          // console.log('Minion Left'+minionLeftPosition);
-          // console.log('Minion Top'+minionTopPosition);
-          // console.log('Monster Top'+monsterTopPosition);
-          // console.log('Monster Left'+monsterLeftPosition);
-          // if (minionLeftPosition+gameObj.minionWidth == monsterLeftPosition ||
-          //   minionTopPosition+gameObj.minionHeight == monsterTopPosition ||
-          //   minionLeftPosition == monsterLeftPosition + gameObj.monsterWidth ||
-          //   minionTopPosition == monsterTopPosition +gameObj.monsterHeight){
           if (Math.abs(minionLeftPosition-monsterLeftPosition)<=gameObj.minionWidth &&
             Math.abs(minionTopPosition-monsterTopPosition)<=gameObj.minionHeight){            
               // Stop the game
@@ -62,6 +54,20 @@ $(document).ready(function(){
               return;
           }
         });
+        // Check if the object has hit the borders
+        positionTop=parseInt(minion.css('top'));
+        positionLeft=parseInt(minion.css('left'));
+        playAreaHeight=parseInt($('#playarea').css('height'));
+        playAreaWidth=parseInt($('#playarea').css('width'));
+        if (positionTop<=0 || positionLeft<=0 || positionLeft >= playAreaWidth
+          || (positionTop+50)>=playAreaHeight){
+            minion.addClass('rubberband');
+            minion.attr('wow-duration','5s');
+            gameObj.stop();
+            alert('Your minion crashed into the walls !!!..sorry.. Better luck next time');
+            return;
+        }
+
         if (thisArgs.increment){
                 pos++;
           }else{
