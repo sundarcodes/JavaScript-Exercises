@@ -1,8 +1,8 @@
 $(document).ready(function(){
     new WOW().init();
   var game = {
-    init: function(vehicle){
-      this.vehicle=vehicle;
+    init: function(minion){
+      this.minion=minion;
       this.setIntervalIdList=[];
       this.monsterList=[];
       this.monsterIdTracker=0;
@@ -11,8 +11,8 @@ $(document).ready(function(){
       this.monsterWidth=50;
       this.minionHeight=50;
       this.minionWidth=50;      
-      //$(this.vehicle).css('left','20px');
-      //$(this.vehicle).css('top','20px');
+      //$(this.minion).css('left','20px');
+      //$(this.minion).css('top','20px');
       this.args = {
               right: {angle: "360deg", position: "left", increment: true},
               down:  {angle: "90deg",  position: "top", increment: true},
@@ -24,29 +24,55 @@ $(document).ready(function(){
     move: function(direction) {
       var thisArgs = this.args[direction];
       this.carStop();
-      // $(this.vehicle).css('transform','rotateZ(' + thisArgs.angle + ')');
-      this.vehicleSetIntervalId= setInterval(frame,10);
-      this.setIntervalIdList.push(this.vehicleSetIntervalId);
-      var pos = parseInt($(this.vehicle).css(thisArgs.position));
-      var vehicle = this.vehicle;
+      // $(this.minion).css('transform','rotateZ(' + thisArgs.angle + ')');
+      this.minionSetIntervalId= setInterval(frame,10);
+      this.setIntervalIdList.push(this.minionSetIntervalId);
+      var pos = parseInt($(this.minion).css(thisArgs.position));
+      var minion = $(this.minion);
+      var gameObj=this;
       function frame(){
-        if (thisArgs.increment){
-          pos++;
-        }else{
-          pos--;
-        }
-        // Check if the object has hit the monsters or the border
-        $('.monster').each(function()){
+        
+        // Check if the object has hit the monsters
+        $('.monster').each(function(){
           monster=$(this);
-          
-
-        }
-        $(vehicle).css(thisArgs.position,pos + 'px');
+          monsterLeftPosition=parseInt(monster.css("left"));
+          monsterTopPosition=parseInt(monster.css("top"));
+          minionLeftPosition=parseInt(minion.css("left"));
+          minionTopPosition=parseInt(minion.css("top"));
+          // Check if the minion's right touches the left of monster
+          // or if the bottom of minion touches the top of monster
+          // or if the left of minion touches the right of monster
+          // or if the top of minion touches the bottom of monster
+          // console.log('Minion Left'+minionLeftPosition);
+          // console.log('Minion Top'+minionTopPosition);
+          // console.log('Monster Top'+monsterTopPosition);
+          // console.log('Monster Left'+monsterLeftPosition);
+          // if (minionLeftPosition+gameObj.minionWidth == monsterLeftPosition ||
+          //   minionTopPosition+gameObj.minionHeight == monsterTopPosition ||
+          //   minionLeftPosition == monsterLeftPosition + gameObj.monsterWidth ||
+          //   minionTopPosition == monsterTopPosition +gameObj.monsterHeight){
+          if (Math.abs(minionLeftPosition-monsterLeftPosition)<=gameObj.minionWidth &&
+            Math.abs(minionTopPosition-monsterTopPosition)<=gameObj.minionHeight){            
+              // Stop the game
+              // Boom the minion
+              minion.addClass('rubberband');
+              minion.attr('wow-duration','5s');
+              gameObj.stop();
+              alert('Your minion got gobbled !!!..sorry.. Better luck next time');
+              return;
+          }
+        });
+        if (thisArgs.increment){
+                pos++;
+          }else{
+                pos--;
+          }
+        $(minion).css(thisArgs.position,pos + 'px');
       }        
     },
     carStop: function(){
-      if (this.vehicleSetIntervalId){
-        clearInterval(this.vehicleSetIntervalId);
+      if (this.minionSetIntervalId){
+        clearInterval(this.minionSetIntervalId);
       }
     },
     right: function(){this.move("right")},
