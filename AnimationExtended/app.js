@@ -206,25 +206,26 @@ $(document).keydown(function(e){
 		// Left arrow
 		case 37:
 			game.left();
-			e.preventDefault();
+			// e.preventDefault();
 			break;		
 		// Up Arrow
 		case 38:
 			game.up();
-			e.preventDefault();
+			// e.preventDefault();
 			break;
 		// Right Arrow
 		case 39:
 			game.right();
-      e.preventDefault();
+      // e.preventDefault();
 			break;
 		// Down Arrow
-		case 40:			game.down();
-			e.preventDefault();
+		case 40:
+    	game.down();
+			// e.preventDefault();
 			break;
 		case 13:
 			game.stop();
-			e.preventDefault();
+			// e.preventDefault();
 			break;		
 	}
 });
