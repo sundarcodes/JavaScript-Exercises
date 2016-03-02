@@ -23,7 +23,7 @@ $(document).ready(function(){
     },
     move: function(direction) {
       var thisArgs = this.args[direction];
-      this.carStop();
+      this.minionStop();
       // $(this.minion).css('transform','rotateZ(' + thisArgs.angle + ')');
       this.minionSetIntervalId= setInterval(frame,10);
       this.setIntervalIdList.push(this.minionSetIntervalId);
@@ -76,7 +76,7 @@ $(document).ready(function(){
         $(minion).css(thisArgs.position,pos + 'px');
       }        
     },
-    carStop: function(){
+    minionStop: function(){
       if (this.minionSetIntervalId){
         clearInterval(this.minionSetIntervalId);
       }
@@ -191,8 +191,8 @@ $(document).ready(function(){
   };
 
 
-var car = $('#car');
-game.init(car);
+var minion = $('#minion');
+game.init(minion);
 // Register mouse clicks
 $('#start').click(function(){
   game.start();

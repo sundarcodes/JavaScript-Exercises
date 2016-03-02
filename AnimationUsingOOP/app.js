@@ -1,26 +1,30 @@
 'use strict';
 
 class Car{
-	constructor(inputDomElement){
+	constructor(inputDomElement,model){
 		this.domElement=inputDomElement;
 		this.domElement.css('left','10px');
 		this.domElement.css('top','10px');
 		this.newDirection='left';
 		this.increment=true;
+		this.model=model;
+		this.currentSpeed=1;
 	}
 	move(){
-		this.setIntervalId=setInterval(moveCar,5);
-		console.log(this.newDirection);
-		console.log(this.increment);
+		this.setIntervalId=setInterval(moveCar,5)
+		console.log(this.currentSpeed);
+		// console.log(this.newDirection);
+		// console.log(this.increment);
 		var currentPos = parseInt(this.domElement.css(this.newDirection));
-		console.log(this.newDirection);
+		// console.log(this.newDirection);
 		var domElement=this.domElement;
 		var carObj=this;
 		function moveCar(){
 			if (carObj.increment){
-				currentPos++;
+				currentPos=currentPos+carObj.currentSpeed;
 			}else{
-				currentPos--;
+				currentPos=currentPos-carObj.currentSpeed;
+				//currentPos--;
 			}
 			domElement.css(carObj.newDirection,currentPos+'px');
 		}
@@ -53,7 +57,9 @@ class Car{
 
 	}
 	increaseSpeed(){
-
+		if (this.currentSpeed<=5){
+			this.currentSpeed++;
+		}
 	}
 }
 
@@ -88,14 +94,20 @@ class ControlSystem{
 		this.car.stop();
 	}
 	accelerate(){
-
+		//this.car.stop();
+		this.car.increaseSpeed();
+		//this.car.move();
 	}
 }
 
 $(document).ready(function(){
 	var carDomElement=$('#car');
-	var carObject = new Car(carDomElement);
+	var carObject = new Car(carDomElement,"SUV");
+	var car1Object=new Car(carDomElement,"Sedan");
+	console.log(carObject);
+	console.log(car1Object);
 	var objControlSystem = new ControlSystem(carObject);
+	console.log(objControlSystem);
 
 	$(document).keydown(function(key){
 		console.log(key.keyCode);
@@ -114,6 +126,10 @@ $(document).ready(function(){
 			break;						
 			case 32://When space, stop the car
 			objControlSystem.stop();
+			break;
+			case 65: // accelerate when a is pressed
+			objControlSystem.accelerate();
+			break;
 		}
 
 	});
