@@ -2,17 +2,16 @@
   width: 70vw;
   height: 75vh;
   position: relative;
-  border-color: #d35400;
-  border-width: 2px;
-  border-style: solid;
   left: 50%;
   transform: translateX(-50%);
+  background-color: #2c3e50;
+
 }
 #minion {
   width: 50px;
   height: 50px;
   position: absolute;
-  background-image: url(./images/minion.jpg);
+  background-image: url(./images/minion2.png);
   background-size: cover;
   top:100px;
   left:10px;
@@ -21,27 +20,36 @@
   width: 50px;
   height: 50px;
   position: absolute;
-  background-image: url(./images/monster2.jpg);
+  background-image: url(./images/monster.png);
   background-size: cover;
   top:50%;
   left:50%;
+  transform: translateX(-50%) translateY(-50%);
   /*transform: rotateZ(0.75turn);*/
 }
 #ControlSystem{
+  margin-top: 2vh;
   width: 70vw;
   height: 10vh;
-  position: relative;
-  border-color: #3498db;
-  border-width: 1px;
-  border-style: solid;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
 }
-/*#road{
-  width:inherit;
-  border-width: 1px;
-  border-bottom: thick dotted black;
-  top:140px;
-  position:absolute;
-}*/
+
+.blackHole{
+  width: 50px;
+  height: 50px;
+  top:50%;
+  left:50%;
+  background-color: #c0392b;
+  position: absolute;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.btn{
+  height:5vh;
+  width:5vh;
+  border-radius: 50%;
+}
