@@ -99,11 +99,13 @@ $(document).ready(function(){
       console.log('monster is going to come now');
       // Create a monster
       var monster=$("<div/>");
-      monster.addClass('monster wow tada');
+      monster.appendTo($('#playarea'));
+      // monster.addClass('monster wow tada');
+      monster.addClass('monster');
       gameObj.monsterIdTracker++;
       var monsterId='monster'+gameObj.monsterIdTracker;
       monster.attr('id',monsterId)
-      monster.appendTo($('#playarea'));
+
       gameObj.monsterList.push(monster);
       
       monsterMovementSetIntervalId=setInterval(makeMonsterMove,1000);

@@ -4,6 +4,8 @@
   <title>car game</title>
   <link rel="stylesheet" href="animate.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
   <!-- <link rel="stylesheet" href="fontawesome.css"> -->
   <link rel="stylesheet" href="app.css">
   <script type="text/javascript" src="wow.js"></script>
@@ -13,22 +15,29 @@
   <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-  <div id="playarea">
-    <div id="minion"></div>
-    <div class="blackHole"></div>
+  <div class="container">
+    <div class="row">
+      <aside id="leftSection" class="col-md-2">
+        Boosters Left
+      </aside>
+      <div id="playarea" class="col-md-8">
+        <div id="minion"></div>
+        <div class="blackHole"></div>
+      </div>
+      <aside id="rightSection" class="col-md-2">
+        Monster comes in 
+      </aside>
+      
+    </div>
   </div>
-  <!-- <button id="right">Right</button>  
-  <button id="down">Down</button>
-  <button id="left">Left</button>
-  <button id="up">Up</button>
-  <button id="stop">Stop</button>
-   -->
-  <div id="ControlSystem">
+      <div class="row">
+  <div id="ControlSystem" class="col-md-6 col-md-offset-3">
     <button id="start" class="btn fa fa-play"></button>  
     <button id="stop" class="btn fa fa-stop"></button>  
     <button id="pause" class="btn fa fa-pause"></button>  
     <button id="reload" class="btn fa fa-refresh"></button>  
    </div> 
+   </div>
    
 </body>
 </html>
