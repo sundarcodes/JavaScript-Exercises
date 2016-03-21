@@ -138,7 +138,7 @@ class GameController{
       console.log('monster is going to come now');
       // Create a monster
       this.monster=$("<div/>");
-      this.monster.addClass('monster wow tada');
+      this.monster.addClass('monster');
       this.monsterIdTracker++;
       var monsterId='monster'+this.monsterIdTracker;
       this.monster.attr('id',monsterId)
@@ -169,7 +169,35 @@ class GameController{
           }
   	}
 	checkBorderDash(){
-
+		if (this.movingObjectList.length == 0){
+          return;
+        }
+        var controllerObj=this;
+		// Check if any of the moving Objects crashes into borders
+		this.movingObjectList.forEach(function(movingObject){
+          // Get the top position of monster
+          var movObj=movingObject.movingObj;
+          var positionTop=parseInt(movObj.css('top'));
+          var positionLeft=parseInt(movObj.css('left'));
+          var playAreaHeight=parseInt($('#playarea').css('height'));
+          var playAreaWidth=parseInt($('#playarea').css('width'));
+          var movingObjHeight=parseInt(movObj.css('height'));
+          var movingObjWidth=parseInt(movObj.css('width'));
+          if (positionTop<=0 || positionLeft<=0 || (positionLeft+movingObjWidth) >= playAreaWidth
+            || (positionTop+movingObjHeight)>=playAreaHeight){
+            movingObject.stop();
+            movObj.addClass('shake');
+            movObj.attr("wow-duration","1s");
+            movObj.fadeIn(1200);
+            movObj.remove();
+            // console.log(movingObject);
+            if (movingObject instanceof Minion){
+           		// Game is over
+           		alert('OOPs..you have just hit the border. Hard luck');
+           		controllerObj.stopGame(); 	
+            }
+          }
+        });
 	}
 	stopGame(){
 	  this.setIntervalIdList.forEach(function(id){
@@ -181,7 +209,10 @@ class GameController{
       });
 	}
 	startBorderChecking(){
-
+		var controllerObj=this;
+		var startBorderCheckingSetIntervalId=setInterval(function(){
+      	controllerObj.checkBorderDash();},10);
+      	this.setIntervalIdList.push(startBorderCheckingSetIntervalId);
 	}	
 }
 

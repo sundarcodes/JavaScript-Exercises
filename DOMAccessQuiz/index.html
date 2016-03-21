@@ -41,4 +41,81 @@
 <hr>
 <p>14. Can you animate the below box. Its id is box5.</p>
 <div class="box" id="box5"></div>
+
+
+<h2 style = "text-align:center">*********Dom Events**********</h2>
+  <ol>
+    <li>
+      <h4>on Blurr & on Change- When you leave the input field, a function is triggered which transforms the input text to upper case.</h4>
+    
+      Enter your name: <input type="text" id="fname" onblur="myFunction()">
+    </li>
+
+    <li>
+      <h4>When you leave the input field, a function is triggered which transforms the input text to upper case.</h4>
+      Enter your name: <input type="text" id="fname1" onchange="chageon()">     
+    </li>
+
+    <li>
+      <h4> onchange - When a user selects a dropdown value</h4>
+        <form>
+        Choose which browser you prefer:
+        <select id="browsers" onchange="preferedBrowser()">
+        <option value="Chrome">Chrome</option>
+        <option value="Internet Explorer">Internet Explorer</option>
+        <option value="Firefox">Firefox</option>
+        </select>
+        </form>
+    </li>
+
+    <li>
+      <h4>When the input field gets focus, a function is triggered which changes the background-color.</h4>
+        Enter your name: <input type="text" onfocus="color(this)">
+    </li>
+
+    <li>
+      <h4>When input text is selected</h4>      
+      Some text: <input type="text" value="Hello world!" onselect="inputxt()">
+      <p id="demo" style="background-color:yellow"></p>
+      
+    </li>
+
+    <li>
+      <h4>When a user clicks the submit button</h4>
+      <form onsubmit="confirmInput()" action="http://www.codeastra.com/">
+        Enter your name: <input id="fname" type="text" size="20">
+        <input type="submit">
+      </form>
+    </li>
+    <li>
+      <h4>When a user clicks the reset button</h4>
+      <form onreset="message()">
+        Enter your name: <input type="text" size="20">
+        <input type="reset">
+      </form>
+    </li>
+    <li>
+      <h4>A function is triggered when the user is pressing a key in the input field.</h4>
+      <input type="text" onkeydown="keydown()">
+    </li>
+    <li>
+      <h4>A function is triggered when the user is pressing a key in the input field.</h4>
+      <input type="text" onkeypress="keypress()">
+    </li>
+    <li>
+      
+      <h4>A function is triggered when the user releases a key in the input field. The function transforms the character to upper case.</h4>
+      Enter your name: <input type="text" id="fname2" onkeyup="keyup()">
+    </li>
+    <li>
+      <h4>The onkeyup event occurs when the a keyboard key is on it's way UP.</h4>
+      <form>
+      Enter your name:
+      <input type="text" name="myInput" onkeyup="writeMessage()" size="20">
+      <input type="text" name="mySecondInput" size="20">
+      </form>
+    </li>
+  </ol>
+
+
 </html>
