@@ -8,12 +8,10 @@ var game={
 	init: function(domElement){
 		this.domElement = domElement;
 		$(this.domElement).css('left','0px');
-		this.initPosistion=0;
 	},
 	move:function(){
 		this.setIntervalId = setInterval(frame, 5);
 		var pos=parseInt($(this.domElement).css('left'));
-		//this.init(this.domElement);
 		var domElement = this.domElement;
 		console.log("Inside move");
 		console.log(this);
@@ -34,7 +32,7 @@ var game={
 
 var car=$('#car');
 game.init(car);
-console.log(game.init);
+// console.log(game.init);
 
 // Add the click listener
 $('#start').click(function(){
