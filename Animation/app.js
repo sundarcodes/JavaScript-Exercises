@@ -7,6 +7,7 @@ $(document).ready(function(){
 var game={
 	init: function(domElement){
 		this.domElement = domElement;
+		console.log(this);
 		$(this.domElement).css('left','0px');
 	},
 	move:function(){
@@ -19,6 +20,7 @@ var game={
 	  		  pos++;
 	  		  console.log("Inside frame");
 	  		  console.log(this);
+	  		  // $(this.domElement).css('left',pos + 'px');
 	  		  $(domElement).css('left',pos + 'px');
 		      // domElement.style.left = pos + 'px'; 
 		    }
@@ -31,6 +33,8 @@ var game={
 };
 
 var car=$('#car');
+console.log(game);
+console.log('Before calling init');
 game.init(car);
 // console.log(game.init);
 
