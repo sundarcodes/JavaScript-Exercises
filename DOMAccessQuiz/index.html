@@ -1,121 +1,119 @@
 <html>
+
 <head>
-	<title>DOM Access JS Quiz</title>
-	<link rel="stylesheet" href="app.css">
-	<script src="jquery.js"></script>
-	<script type="text/javascript" src="jquery-ui.js"></script>
-	<script src="app.js"></script>
+  <title>DOM Access JS Quiz</title>
+  <link rel="stylesheet" href="app.css">
+  <script src="jquery.js"></script>
+  <script type="text/javascript" src="jquery-ui.js"></script>
+  <script src="app.js"></script>
 </head>
 <h1>Welcome to JS DOM Exercise</h1>
 <p id="para1">1. Hello there..Could you identify me ? My id is para1</p>
+<a href="#" onclick="identifyById()">document.getElementsById</a>
 <hr>
 <p class="class1">2. Hi again...I don't have a id but you can find by my class which is class1 </p>
+<a href="#" onclick="identifyByClass()">document.getElementsByClassName</a>
 <hr>
 <p> 3. Oh.Oh.Oh.. wait a minute.. I don't have a id nor do I have a class in me.. Could you find me and my peers if I tell you that I am a p element ? </p>
+<a href="#" onclick="byTag()">document.getElementsByTagName</a>
 <hr>
 <div id="block1">4. I am inside a div.Can you change my background color to blue.. My id is block1</div>
+<a href="#" onclick="changeBackground()">Change Background Color</a>
 <hr>
 <div id="block2">5. On mouse click, can you increase my fontsize. My id is block2</div>
+<a href="#" onclick="increaseFont()">Increase Font Size</a>
 <hr>
-<div id="block3">6. Can you change my font color to green on mouse over.. and roll it back to black when is mouse is moved out.. yeh..my id is block3</div>
+<div id="block3" onmouseover="changeFontColor()" onmouseout="revertColor()">6. Can you change my font color to green on mouse over.. and roll it back to black when is mouse is moved out.. yeh..my id is block3</div>
 <hr>
-<div id="block4">7. On double click, can you hide me ?. My id is block4</div>
-<hr>
-8. Can you please change all the boxes background color to green. All of them have class as box1 ?
+<div id="block4" ondblclick="hide()">7. On double click, can you hide me ?. My id is block4</div>
+<hr> 8. Can you please change all the boxes background color to green. All of them have class as box1 ?
 <div class="box1"></div>
 <div class="box1"></div>
 <div class="box1"></div>
-<hr>
-9. Can you now change all the box background color to blue on mouse click. All of them have class as box2 ?
-<div class="box2"></div>
-<div class="box2"></div>
-<div class="box2"></div>
-<hr>
-10. Can you just make this textbox to accept only numbers ?
-<input type="text" id="input1">
+<a href="#" onclick="changeBackColor('green ', 'box1' )">Change background color</a>
+<hr> 9. Can you now change all the box background color to blue on mouse click. All of them have class as box2 ?
+<div class="box2" onclick="changeBackColor('blue','box2')"></div>
+<div class="box2" onclick="changeBackColor('blue','box2')"></div>
+<div class="box2" onclick="changeBackColor('blue','box2')"></div>
+<hr> 10. Can you just make this textbox to accept only numbers ?
+<input type="text" id="input1" onkeypress="return numbersOnly(event)">
 <hr>
 <p id='para2'>11. Can you add one more para below me with the text "I got generated on the fly...". My id is para2</p>
+<a href="#" onclick="addAdjacent()">Add new para</a>
 <hr>
 <p id='para3'>12. I don't like the fellow below me. Could you remove it. My id is para3 and next elment id is para4</p>
 <p id='para4'>13. Are you going to remove me ? </p>
+<a href="#" onclick="removePara()">Remove para4</a>
 <hr>
 <p>14. Can you animate the below box. Its id is box5.</p>
-<div class="box" id="box5"></div>
-
-
-<h2 style = "text-align:center">*********Dom Events**********</h2>
-  <ol>
-    <li>
-      <h4>on Blurr & on Change- When you leave the input field, a function is triggered which transforms the input text to upper case.</h4>
-    
-      Enter your name: <input type="text" id="fname" onblur="myFunction()">
-    </li>
-
-    <li>
-      <h4>When you leave the input field, a function is triggered which transforms the input text to upper case.</h4>
-      Enter your name: <input type="text" id="fname1" onchange="chageon()">     
-    </li>
-
-    <li>
-      <h4> onchange - When a user selects a dropdown value</h4>
-        <form>
-        Choose which browser you prefer:
-        <select id="browsers" onchange="preferedBrowser()">
+<div class="box" id="box5" onmousemove="myMove()"></div>
+<h2 style="text-align:center">*********Dom Events**********</h2>
+<ol>
+  <li>
+    <h4>on Blurr & on Change- When you leave the input field, a function is triggered which transforms the input text to upper case.</h4> Enter your name:
+    <input type="text" id="fname" onblur="myFunction(fname.value)">
+  </li>
+  <li>
+    <h4>When you leave the input field, a function is triggered which transforms the input text to upper case.</h4> Enter your name:
+    <input type="text" id="fname1" onchange="changeOn()">
+  </li>
+  <li>
+    <h4> onchange - When a user selects a dropdown value</h4>
+    <form>
+      Choose which browser you prefer:
+      <select id="browsers" onchange="preferedBrowser()">
         <option value="Chrome">Chrome</option>
-        <option value="Internet Explorer">Internet Explorer</option>
         <option value="Firefox">Firefox</option>
-        </select>
-        </form>
-    </li>
-
-    <li>
-      <h4>When the input field gets focus, a function is triggered which changes the background-color.</h4>
-        Enter your name: <input type="text" onfocus="color(this)">
-    </li>
-
-    <li>
-      <h4>When input text is selected</h4>      
-      Some text: <input type="text" value="Hello world!" onselect="inputxt()">
-      <p id="demo" style="background-color:yellow"></p>
-      
-    </li>
-
-    <li>
-      <h4>When a user clicks the submit button</h4>
-      <form onsubmit="confirmInput()" action="http://www.codeastra.com/">
-        Enter your name: <input id="fname" type="text" size="20">
-        <input type="submit">
-      </form>
-    </li>
-    <li>
-      <h4>When a user clicks the reset button</h4>
-      <form onreset="message()">
-        Enter your name: <input type="text" size="20">
-        <input type="reset">
-      </form>
-    </li>
-    <li>
-      <h4>A function is triggered when the user is pressing a key in the input field.</h4>
-      <input type="text" onkeydown="keydown()">
-    </li>
-    <li>
-      <h4>A function is triggered when the user is pressing a key in the input field.</h4>
-      <input type="text" onkeypress="keypress()">
-    </li>
-    <li>
-      
-      <h4>A function is triggered when the user releases a key in the input field. The function transforms the character to upper case.</h4>
-      Enter your name: <input type="text" id="fname2" onkeyup="keyup()">
-    </li>
-    <li>
-      <h4>The onkeyup event occurs when the a keyboard key is on it's way UP.</h4>
-      <form>
+        <option value="Internet Explorer">Internet Explorer</option>
+      </select>
+    </form>
+  </li>
+  <li>
+    <h4>When the input field gets focus, a function is triggered which changes the background-color.</h4> Enter your name:
+    <input type="text" onfocus="color(this)">
+  </li>
+  <li>
+    <h4>When input text is selected</h4> Some text:
+    <input type="text" value="Hello world!" onselect="inputxt()">
+    <p id="demo" style="background-color:yellow"></p>
+  </li>
+  <li>
+    <h4>When a user clicks the submit button</h4>
+    <form onsubmit="confirmInput()" action="http://www.codeastra.com/">
+      Enter your name:
+      <input id="fname" type="text" size="20">
+      <input type="submit">
+    </form>
+  </li>
+  <li>
+    <h4>When a user clicks the reset button</h4>
+    <form onreset="message()">
+      Enter your name:
+      <input type="text" size="20">
+      <input type="reset">
+    </form>
+  </li>
+  <li>
+    <h4>A function is triggered when the user is pressing a key in the input field.</h4>
+    <input type="text" id="input1" onkeydown="keydown(this)">
+  </li>
+  <li>
+    <h4>A function is triggered when the user is pressing a key in the input field.</h4>
+    <input type="text" id="input2" onkeypress="keypress(event)">
+    <p>Key Code is <span id="keycode"></span></p>
+  </li>
+  <li>
+    <h4>A function is triggered when the user releases a key in the input field. The function transforms the character to upper case.</h4> Enter your name:
+    <input type="text" id="fname2" onkeyup="keyup()">
+  </li>
+  <li>
+    <h4>The onkeyup event occurs when the a keyboard key is on it's way UP.</h4>
+    <form>
       Enter your name:
       <input type="text" name="myInput" onkeyup="writeMessage()" size="20">
       <input type="text" name="mySecondInput" size="20">
-      </form>
-    </li>
-  </ol>
-
+    </form>
+  </li>
+</ol>
 
 </html>
