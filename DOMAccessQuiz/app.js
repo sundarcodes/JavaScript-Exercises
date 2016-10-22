@@ -74,7 +74,7 @@ function confirmInput() {
 }
 
 function message() {
-  alert("Reset");
+  
 }
 
 function keydown(n) {
