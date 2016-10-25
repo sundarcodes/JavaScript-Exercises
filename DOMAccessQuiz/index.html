@@ -50,15 +50,15 @@
 <h2 style="text-align:center">*********Dom Events**********</h2>
 <ol>
   <li>
-    <h4>on Blurr & on Change- When you leave the input field, a function is triggered which transforms the input text to upper case.</h4> Enter your name:
+    <h4>on Blurr & on Change- When you leave the input field, transform the input text to upper case.</h4> Enter text:
     <input type="text" id="fname" onblur="myFunction(fname.value)">
   </li>
   <li>
-    <h4>When you leave the input field, a function is triggered which transforms the input text to upper case.</h4> Enter your name:
+    <h4>When you leave the input field, transform the input text to camel case.</h4> Enter text:
     <input type="text" id="fname1" onchange="changeOn()">
   </li>
   <li>
-    <h4> onchange - When a user selects a dropdown value</h4>
+    <h4> Console.log the preffered browser name, when you select a dropdown value</h4>
     <form>
       Choose which browser you prefer:
       <select id="browsers" onchange="preferedBrowser()">
@@ -69,18 +69,13 @@
     </form>
   </li>
   <li>
-    <h4>When the input field gets focus, a function is triggered which changes the background-color.</h4> Enter your name:
+    <h4>When the input field gets focus, change the background-color.</h4> Enter text:
     <input type="text" onfocus="color(this)">
   </li>
   <li>
-    <h4>When input text is selected</h4> Some text:
-    <input type="text" value="Hello world!" onselect="inputxt()">
-    <p id="demo" style="background-color:yellow"></p>
-  </li>
-  <li>
-    <h4>When a user clicks the submit button</h4>
+    <h4>Submit the form to www.codeastra.com when the user enters text and submits the form. Alert if the text is empty </h4>
     <form onsubmit="confirmInput()" action="http://www.codeastra.com/">
-      Enter your name:
+      Enter text:
       <input id="fname" type="text" size="20">
       <input type="submit">
     </form>
