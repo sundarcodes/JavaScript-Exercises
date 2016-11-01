@@ -22,7 +22,7 @@ var game={
 	  		  console.log(this);
 	  		  // $(this.domElement).css('left',pos + 'px');
 	  		  $(domElement).css('left',pos + 'px');
-		      // domElement.style.left = pos + 'px'; 
+		      // domElement.style.left = pos + 'px';
 		    }
 	},
 	stop:function(){
@@ -47,7 +47,3 @@ $('#stop').click(function(){
 });
 
 });
-
-
-
-

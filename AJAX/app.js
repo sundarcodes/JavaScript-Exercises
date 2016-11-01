@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	console.log('Document is ready');
 	$('#result').hide();
-	$('#forecast').click(function(){
+	$('#current').click(function(){
 		// Clear all old data
 		$('tbody>tr').remove();
 		var cityName=$('#input1').val();
@@ -27,6 +27,7 @@ $(document).ready(function(){
 		   	$('#result').show();
 		   },
 		});
+		console.log('After calling Ajax');
 	});
 	console.log('After registering click event');
 });
