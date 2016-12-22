@@ -9,6 +9,7 @@ for(i=0;i<elements.length;i++){
 	element=elements[i];
 	element.addEventListener('click',function(){
 	// Get the ID of the clicked element
+	console.log(this);
 	id=this.id;
 	rowIndex=id.slice(0,1);
 	console.log(rowIndex);
@@ -43,5 +44,3 @@ for(i=0;i<elements.length;i++){
 
 	});
 }
-
-
